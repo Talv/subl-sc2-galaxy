@@ -1,0 +1,9 @@
+<snippet>
+    <content><![CDATA[
+struct ${1:NAME} {
+    ${2}
+};
+]]></content>
+    <tabTrigger>st</tabTrigger>
+    <scope>source.galaxy</scope>
+</snippet>

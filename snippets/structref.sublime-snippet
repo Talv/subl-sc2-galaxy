@@ -1,0 +1,7 @@
+<snippet>
+    <content><![CDATA[
+structref<${1:st}>
+]]></content>
+    <tabTrigger>stref</tabTrigger>
+    <scope>source.galaxy</scope>
+</snippet>

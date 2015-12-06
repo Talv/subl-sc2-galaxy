@@ -1,0 +1,15 @@
+<snippet>
+    <content><![CDATA[
+bool ${1:NAME}(bool testConds, bool runActions) {
+    if (testConds) {${2}
+    }
+
+    if (runActions) {${3}
+    }
+    
+    return true;
+};
+]]></content>
+    <tabTrigger>tgc</tabTrigger>
+    <scope>source.galaxy</scope>
+</snippet>
