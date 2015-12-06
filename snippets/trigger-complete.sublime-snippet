@@ -4,11 +4,12 @@ bool ${1:NAME}(bool testConds, bool runActions) {
     if (testConds) {${2}
     }
 
-    if (runActions) {${3}
+    if (!runActions) {
+        return true;
     }
-    
+    ${3}
     return true;
-};
+}
 ]]></content>
     <tabTrigger>tgc</tabTrigger>
     <scope>source.galaxy</scope>

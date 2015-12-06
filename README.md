@@ -49,6 +49,9 @@ Native functions and constants are mapped into sublime-completions.
  * `stref` structref
  * `tgs` trigger simple formatting
  * `tgc` trigger complex formatting
+ * `for` for loop
+ * `foru` for loop iterating units
+ * `forp` for loop iterating players
 
 ## How to use this plugin in combo with SC2 Editor?
 To avoid copy-pasting code from the sublime to trigger editor, or manually reimporting files after every change, you must save your map in an unpacked format - that is *.SC2Component* in save dialog.  

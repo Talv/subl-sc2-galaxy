@@ -3,7 +3,7 @@
 bool ${1:NAME}(bool testConds, bool runActions) {
     ${2}
     return true;
-};
+}
 ]]></content>
     <tabTrigger>tgs</tabTrigger>
     <scope>source.galaxy</scope>
