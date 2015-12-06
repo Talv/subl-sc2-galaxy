@@ -49,3 +49,30 @@ Native functions and constants are mapped into sublime-completions.
  * `stref` structref
  * `tgs` trigger simple formatting
  * `tgc` trigger complex formatting
+
+## How to use this plugin in combo with SC2 Editor?
+To avoid copy-pasting code from the sublime to trigger editor, or manually reimporting files after every change, you must save your map in an unpacked format - that is *.SC2Component* in save dialog.  
+This way you will be able to open your map's directory in sublime. And write galaxy files directly through the filesystem.  
+Thanks to this SC2 Editor will read your script files on demand - always up to date.
+
+It's also recommended to not write your code directly into MapScript.galaxy as it might be easly overriden by editor. The better way is to create a custom block in trigger editor and include your custom scripts from there. This way:
+
+![trigger editor](https://cloud.githubusercontent.com/assets/6976458/11614705/a03daefa-9c4a-11e5-95de-9b2bd1780dec.png)
+
+Then create a file `bootstrap.galaxy`:
+
+```
+// bootstrap.galaxy
+
+// here you might insert sub includes
+
+bool onInit(bool testConds, bool runActions) {
+    UIDisplayMessage(PlayerGroupActive(), c_messageAreaSubtitle, StringToText("HELLO WORLD"));
+    return true;
+};
+
+void bootstrap() {
+    // this is your entry point
+    TriggerAddEventMapInit(TriggerCreate("onInit"));
+}
+```
