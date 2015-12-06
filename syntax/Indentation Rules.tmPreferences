@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>name</key>
+    <string>Indentation Rules</string>
+    <key>scope</key>
+    <string>source.galaxy</string>
+    <key>settings</key>
+    <dict>
+        <key>decreaseIndentPattern</key>
+        <string>(?x)
+        ^ (.*\*/)? \s* \} .* $
+    </string>
+        <key>increaseIndentPattern</key>
+        <string>(?x)
+        ^ .* \{ [^}"']* $
+    </string>
+
+        <key>bracketIndentNextLinePattern</key>
+        <string>(?x)
+        ^ \s* \b(if|while|else)\b [^;]* $
+        | ^ \s* \b(for)\b .* $
+        </string>
+
+        <key>indentSquareBrackets</key>
+        <true/>
+
+    </dict>
+    <key>uuid</key>
+    <string>DCFD6NTZ-FIRV-ZA3I-Q7SS-8KV4VFALMYY5</string>
+</dict>
+</plist>
