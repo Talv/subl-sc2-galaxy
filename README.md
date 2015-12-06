@@ -4,6 +4,9 @@ It's a plugin for Sublime Text editor (tested on Build 3083) that introduces sup
 ## Installation
 
 ### Linter installation
+
+Requires [SublimeLinter](http://www.sublimelinter.com/en/latest/installation.html#installing-via-pc) package to be installed.
+
 Before using this plugin, you must ensure that [nectan](https://github.com/Talv/nectan) is installed on your system. To install `nectan`, do the following:
 
 1. Install [Python](http://python.org/download/) and [pip](http://www.pip-installer.org/en/latest/installing.html).
@@ -19,11 +22,30 @@ Clone this repository into a subdirectory named `subl-sc2-galaxy` in a *Packages
 ```C:\Users\YOUR_NAME\AppData\Roaming\Sublime Text 3\Packages``` (Windows)
 ```
 cd ~/.config/sublime-text-3/Packages
-git clone git@github.com:Talv/subl-sc2-galaxy.git
+git clone https://github.com/Talv/subl-sc2-galaxy.git
 ```
+
+## Configuration
+Ensure that galaxylint is enabled by using command `Sublime Linter: Enable linter` (might be enabled by default).
 
 ## Features
 
 ### Syntax highlighting
+![syntax highlighting](https://cloud.githubusercontent.com/assets/6976458/11614372/276ccbf4-9c41-11e5-8648-7f708e5df3fa.png)
+
 
 ### Code linter
+Basic code linting - currently performs only syntax checking.
+![syntax check](https://cloud.githubusercontent.com/assets/6976458/11614383/79b648fe-9c41-11e5-89b8-ca2becee2153.png)
+
+### Completion of native functions
+Native functions and constants are mapped into sublime-completions.
+![natives completion](https://cloud.githubusercontent.com/assets/6976458/11614389/bba6f510-9c41-11e5-9d00-46ef7afa8ad6.png)
+(will expand into `UnitGetFacing(unit inUnit)`)
+
+### Snippets
+
+ * `st` struct
+ * `stref` structref
+ * `tgs` trigger simple formatting
+ * `tgc` trigger complex formatting
