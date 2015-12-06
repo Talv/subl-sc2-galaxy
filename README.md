@@ -70,7 +70,7 @@ Then create a file `scripts/bootstrap.galaxy`:
 bool onInit(bool testConds, bool runActions) {
     UIDisplayMessage(PlayerGroupActive(), c_messageAreaSubtitle, StringToText("HELLO WORLD"));
     return true;
-};
+}
 
 void bootstrap() {
     // this is your entry point
