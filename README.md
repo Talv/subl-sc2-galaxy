@@ -1,5 +1,5 @@
-# subl-sc-galaxy
-It's a plugin for Sublime Text editor (tested on Build 3083) that introduces support for *SC2 Galaxy Script* language.
+# SC2 Galaxy script package for Sublime Text editor
+Plugin for Sublime Text editor (tested on Build 3083) that introduces support for *SC2 Galaxy Script* language.
 
 ## Installation
 
@@ -53,29 +53,29 @@ Native functions and constants are mapped into sublime-completions.
  * `foru` for loop iterating units
  * `forp` for loop iterating players
 
-## How to use this plugin in combo with SC2 Editor?
-To avoid copy-pasting code from the sublime to trigger editor, or manually reimporting files after every change, you must save your map in an unpacked format - that is *.SC2Component* in save dialog.  
-This way you will be able to open your map's directory in sublime. And write galaxy files directly through the filesystem.  
-Thanks to this SC2 Editor will read your script files on demand - always up to date.
+## How to use this plugin in combination with SC2 Editor?
+To avoid copy-pasting code from sublime to trigger editor, or manually reimporting .galaxy files after every change, you must save your map in an unpacked format - that is *.SC2Component* in save dialog.
 
-It's also recommended to not write your code directly into `MapScript.galaxy` as it might be easly overriden by editor. The better way is to create a custom block in trigger editor and include your custom scripts from there. This way:
+This will expose your map files to be accessed through the filesystem. Take advantage of it and open your map's directory as sublime project.
+
+Then you can just save your scripts directly into the map, without any additional importing in SC2 editor. Your scripts will be read on demand - always up to date.
+
+It's also advised to not write your code directly into `MapScript.galaxy` as it might be easly overriden by sc2 editor. The better way is to create a custom script block in trigger editor and include your scripts from there. Example:
 
 ![trigger editor](https://cloud.githubusercontent.com/assets/6976458/11614705/a03daefa-9c4a-11e5-95de-9b2bd1780dec.png)
 
-Then create a file `scripts/bootstrap.galaxy`:
-
-```
-// scripts/bootstrap.galaxy
+```c
+// scripts/main.galaxy
 
 // here you might insert sub includes
-// include "scripts/foo.galaxy"
+include "scripts/foo.galaxy"
 
 bool onInit(bool testConds, bool runActions) {
     UIDisplayMessage(PlayerGroupActive(), c_messageAreaSubtitle, StringToText("HELLO WORLD"));
     return true;
 }
 
-void bootstrap() {
+void main() {
     // this is your entry point
     TriggerAddEventMapInit(TriggerCreate("onInit"));
 }
