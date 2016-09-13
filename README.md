@@ -60,15 +60,32 @@ This will expose your map files to be accessed through the filesystem. Take adva
 
 Then you can just save your scripts directly into the map, without any additional importing in SC2 editor. Your scripts will be read on demand - always up to date.
 
-It's also advised to not write your code directly into `MapScript.galaxy` as it might be easly overriden by sc2 editor. The better way is to create a custom script block in trigger editor and include your scripts from there. Example:
+It's also advised to not write your code directly into `MapScript.galaxy` as it might be easly overriden by sc2 editor. The better way is to create a custom script block in trigger editor and include your scripts from there. 
+
+For Example:
 
 ![trigger editor](https://cloud.githubusercontent.com/assets/6976458/11614705/a03daefa-9c4a-11e5-95de-9b2bd1780dec.png)
+* Note the Initialization Function (Optional) on bottom
+
+Navigate into your MAPFILE.SC2Map directory and create a `scripts` directory. Inside it, create two files:
+```c
+// scripts/bootstrap.galaxy
+
+// This is the primary bootstrap file. It will bootstrap main, among other required environment files needed.
+include "scripts/main.galaxy"
+
+void bootstrap() {
+   //Comment out the below line after confirming it works.
+	UIDisplayMessage(PlayerGroupActive(), c_messageAreaSubtitle, StringToText("Bootstrap"));
+	main(); //Call main, it is suggested most internal systems should hook off main's initialization.
+}
+```
 
 ```c
 // scripts/main.galaxy
 
-// here you might insert sub includes
-include "scripts/foo.galaxy"
+// here you might insert sub includes, e.g.
+//include "scripts/foo.galaxy"
 
 bool onInit(bool testConds, bool runActions) {
     UIDisplayMessage(PlayerGroupActive(), c_messageAreaSubtitle, StringToText("HELLO WORLD"));
